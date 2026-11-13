@@ -26,7 +26,7 @@ Backend PHP dan MySQL untuk API publik serta dashboard administrasi PERUNGGU.
    - `PERUNGGU_DB_NAME`
    Jika nama database diubah, samakan nama pada perintah `CREATE DATABASE` dan `USE` di `database.sql`.
 4. Buka `http://localhost/perunggu/backend_perunggu/login.php` (sesuaikan `perunggu` dengan nama folder proyek di document root). Jika tabel `admins` kosong, halaman login menampilkan pembuatan akun admin pertama. Jika sudah ada akun, halaman hanya menampilkan login; untuk menambah admin, masuk dengan akun yang ada lalu pilih menu **Akun Admin**. Pendaftaran admin publik dinonaktifkan.
-6. Untuk database lama yang belum memiliki kolom terkait, jalankan migrasi SQL di folder `migrations` satu kali dan sesuai urutan berikut. Lewati migrasi yang sudah diterapkan:
+5. Untuk database lama yang belum memiliki kolom terkait, jalankan migrasi SQL di folder `migrations` satu kali dan sesuai urutan berikut. Lewati migrasi yang sudah diterapkan:
    1. `add_paid_at_to_orders.sql`
    2. `split_order_payment_shipping_status.sql`
 
