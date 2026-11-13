@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Dashboard Admin Perunggu</title>
+
+    <!--begin::Theme Init-->
+    <script>
+      (() => {
+        'use strict';
+        const root = document.documentElement;
+        if (root.getAttribute('data-lte-color-mode') === 'off') return;
+        const STORAGE_KEY = 'lte-theme';
+        let stored = null;
+        try { stored = localStorage.getItem(STORAGE_KEY); } catch {}
+        const authored = root.getAttribute('data-bs-theme');
+        let resolved = 'light';
+        if (stored === 'dark' || stored === 'light') resolved = stored;
+        else if (authored === 'dark' || authored === 'light') resolved = authored;
+        else if (globalThis.matchMedia('(prefers-color-scheme: dark)').matches) resolved = 'dark';
+        root.setAttribute('data-bs-theme', resolved);
+        root.style.colorScheme = resolved;
+      })();
+    </script>
+    <!--end::Theme Init-->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="title" content="PERUNGGU — Dashboard Admin" />
+    <meta name="description" content="Dashboard Pengelolaan Basis Data Website Resmi Band PERUNGGU (perunggu_db)" />
+
+    <link rel="preload" href="./css/adminlte.css" as="style" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css" media="all" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="./css/adminlte.css" />
+
+    <style>
+      .perunggu-brand {
+        letter-spacing: 2px;
+        font-weight: 800;
+        color: #d4a373 !important;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      .nav-treeview .nav-link {
+        padding-left: 2.2rem !important;
+      }
+    </style>
+  </head>
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <!-- Banner Deteksi file:/// -->
+    <div id="file-protocol-warning" class="alert alert-warning text-center m-0 rounded-0 border-0 border-bottom d-none py-2" role="alert">
+      <strong><i class="bi bi-exclamation-triangle-fill text-danger me-1"></i> Perhatian:</strong> Anda membuka file langsung dari File Explorer (<code>file:///</code>). 
+      File PHP akan otomatis terunduh/download jika tidak lewat web server. 
+      Buka lewat Laragon di: <a href="http://localhost/perunggu/backend_perunggu/dist/index.php" class="alert-link fw-bold text-decoration-underline">http://localhost/perunggu/backend_perunggu/dist/index.php</a>
+    </div>
+
+    <div class="app-wrapper">
+      
+      <!-- HEADER NAVBAR -->
+      <nav class="app-header navbar navbar-expand bg-body shadow-sm">
+        <div class="container-fluid">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button" aria-label="Toggle Sidebar">
+                <i class="bi bi-list fs-5"></i>
+              </a>
+            </li>
+            <li class="nav-item d-none d-md-block">
+              <a href="../../web_perunggu/index.html" target="_blank" class="nav-link text-primary fw-medium">
+                <i class="bi bi-box-arrow-up-right me-1"></i> Buka Website Publik
+              </a>
+            </li>
+            <li class="nav-item d-none d-md-block">
+              <a href="./index.php" class="nav-link fw-bold text-success">
+                <i class="bi bi-filetype-php me-1"></i> Buka Mode Dinamis (index.php)
+              </a>
+            </li>
+            <li class="nav-item d-none d-md-block">
+              <a href="../bacadata.php" class="nav-link">
+                <i class="bi bi-table me-1"></i> Viewer 11 Tabel
+              </a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ms-auto align-items-center">
+            <!-- Messages Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link position-relative" data-bs-toggle="dropdown" href="#" aria-label="Pesan">
+                <i class="bi bi-envelope fs-5"></i>
+                <span class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-danger">2</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <span class="dropdown-item dropdown-header font-weight-bold">2 Pesan Kontak Masuk</span>
+                <div class="dropdown-divider"></div>
+                <a href="#section-messages" class="dropdown-item dropdown-footer text-primary">Lihat Pesan Kontak</a>
+              </div>
+            </li>
+
+            <!-- Theme Toggle -->
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" id="bd-theme" data-bs-toggle="dropdown">
+                <i class="bi bi-sun-fill" data-lte-theme-icon="light"></i>
+                <i class="bi bi-moon-fill d-none" data-lte-theme-icon="dark"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme">
+                <li><button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"><i class="bi bi-sun-fill me-2"></i> Light</button></li>
+                <li><button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"><i class="bi bi-moon-fill me-2"></i> Dark</button></li>
+              </ul>
+            </li>
+
+            <!-- User Menu -->
+            <li class="nav-item dropdown user-menu ms-2">
+              <a href="#" class="nav-link dropdown-toggle d-flex align-items-center gap-2" data-bs-toggle="dropdown">
+                <img src="./assets/img/perunggu-logo.jpeg" class="user-image rounded-circle shadow-sm" alt="Admin" style="width: 32px; height: 32px; object-fit: cover;" />
+                <span class="d-none d-md-inline fw-semibold">Admin Perunggu</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <li class="user-header text-bg-dark text-center py-3">
+                  <img src="./assets/img/perunggu-logo.jpeg" class="rounded-circle shadow mb-2" alt="Perunggu" style="width: 60px; height: 60px; object-fit: cover;" />
+                  <p class="mb-0 fw-bold">Admin Band PERUNGGU</p>
+                  <small class="text-white-50">Database: perunggu_db (MySQL)</small>
+                </li>
+                <li class="user-footer d-flex justify-content-between p-2">
+                  <a href="./index.php?table=admins#table-viewer" class="btn btn-sm btn-outline-secondary">Akun Admin</a>
+                  <a href="../bacadata.php" class="btn btn-sm btn-outline-danger">Cek DB</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- SIDEBAR DENGAN ACCORDION DROPDOWN (TREEVIEW) -->
+      <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+        <div class="sidebar-brand d-flex align-items-center justify-content-start px-3 py-2 border-bottom border-secondary border-opacity-25">
+          <a href="./index.html" class="brand-link d-flex align-items-center gap-2 text-decoration-none">
+            <img src="./assets/img/perunggu-logo.jpeg" alt="Logo" class="brand-image rounded shadow" style="width: 34px; height: 34px; object-fit: cover;" />
+            <span class="brand-text perunggu-brand fs-5">PERUNGGU</span>
+          </a>
+        </div>
+
+        <div class="sidebar-wrapper">
+          <nav class="mt-2">
+            <!-- Sidebar Menu dengan Treeview Accordion -->
+            <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
+              
+              <!-- 1. DASHBOARD DROPDOWN -->
+              <li class="nav-item menu-open">
+                <a href="#" class="nav-link active">
+                  <i class="nav-icon bi bi-speedometer2"></i>
+                  <p>
+                    Dashboard
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#section-summary" class="nav-link active">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Ringkasan Utama</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#section-orders" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Pesanan Masuk</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#section-tours" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Jadwal Konser</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#section-messages" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Pesan Kontak</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- 2. KARYA MUSIK & AUDIO DROPDOWN -->
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-disc"></i>
+                  <p>
+                    Karya Musik & Audio
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="./index.php?table=albums#table-viewer" class="nav-link">
+                      <i class="nav-icon bi bi-record-circle"></i>
+                      <p>Albums (5)</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./index.php?table=tracks#table-viewer" class="nav-link">
+                      <i class="nav-icon bi bi-music-note-beamed"></i>
+                      <p>Tracks & Audio (4)</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- 3. TUR & PENAMPILAN DROPDOWN -->
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-calendar-event"></i>
+                  <p>
+                    Tur & Penampilan
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="./index.php?table=tour_dates#table-viewer" class="nav-link">
+                      <i class="nav-icon bi bi-geo-alt"></i>
+                      <p>Jadwal Tur (4)</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- 4. MERCHANDISE & TRANSAKSI DROPDOWN -->
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-bag-check"></i>
+                  <p>
+                    Merchandise & Toko
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="./index.php?table=products#table-viewer" class="nav-link">
+                      <i class="nav-icon bi bi-box-seam"></i>
+                      <p>Produk Toko (8)</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./index.php?table=orders#table-viewer" class="nav-link">
+                      <i class="nav-icon bi bi-receipt"></i>
+                      <p>Pesanan Masuk (2)</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./index.php?table=order_items#table-viewer" class="nav-link">
+                      <i class="nav-icon bi bi-list-check"></i>
+                      <p>Rincian Item Pesanan</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- 5. KONTEN & MEDIA DROPDOWN -->
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-newspaper"></i>
+                  <p>
+                    Konten & Media
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="./index.php?table=articles#table-viewer" class="nav-link">
+                      <i class="nav-icon bi bi-file-text"></i>
+                      <p>Berita & Artikel (3)</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./index.php?table=gallery#table-viewer" class="nav-link">
+                      <i class="nav-icon bi bi-images"></i>
+                      <p>Galeri Dokumentasi (5)</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- 6. INTERAKSI FANS DROPDOWN -->
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-chat-left-dots"></i>
+                  <p>
+                    Interaksi Fans
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="./index.php?table=contact_messages#table-viewer" class="nav-link">
+                      <i class="nav-icon bi bi-envelope"></i>
+                      <p>Pesan Kontak (1 baru)</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./index.php?table=subscribers#table-viewer" class="nav-link">
+                      <i class="nav-icon bi bi-envelope-check"></i>
+                      <p>Subscribers (3)</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- 7. PENGATURAN SISTEM DROPDOWN -->
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-gear"></i>
+                  <p>
+                    Pengaturan Sistem
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="./index.php?table=admins#table-viewer" class="nav-link">
+                      <i class="nav-icon bi bi-person-lock"></i>
+                      <p>Kelola Admin</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../index.php" class="nav-link">
+                      <i class="nav-icon bi bi-database-gear"></i>
+                      <p>Database Manager PHP</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+            </ul>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- MAIN APP CONTENT -->
+      <main class="app-main" id="section-summary">
+        <div class="app-content-header py-3 border-bottom mb-3">
+          <div class="container-fluid">
+            <div class="row align-items-center">
+              <div class="col-sm-6">
+                <h2 class="mb-0 fs-3 fw-bold">Dashboard Band PERUNGGU</h2>
+                <span class="text-secondary small">Status Database: <code class="text-success">perunggu_db</code> &bull; Terintegrasi</span>
+              </div>
+              <div class="col-sm-6">
+                <div class="float-sm-end d-flex gap-2 align-items-center mt-2 mt-sm-0">
+                  <span class="badge text-bg-dark p-2">
+                    <i class="bi bi-play-circle-fill text-warning me-1"></i> Now Playing: <strong>33x</strong>
+                  </span>
+                  <a href="../../web_perunggu/index.html" target="_blank" class="btn btn-sm btn-outline-primary">
+                    <i class="bi bi-eye"></i> Pratinjau Web
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="app-content">
+          <div class="container-fluid">
+
+            <!-- STATISTIC BOXES ROW -->
+            <div class="row g-3 mb-4">
+              <!-- Box 1 -->
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="small-box text-bg-success shadow-sm rounded-3">
+                  <div class="inner p-3">
+                    <h3 class="fw-bold mb-1">Rp 275.000</h3>
+                    <p class="mb-0">Pendapatan Merchandise (2 Pesanan)</p>
+                  </div>
+                  <div class="small-box-icon"><i class="bi bi-currency-dollar fs-1 opacity-25"></i></div>
+                  <a href="#section-orders" class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover d-block p-2 text-center bg-black bg-opacity-10">
+                    Buka Data Pesanan <i class="bi bi-arrow-down-circle ms-1"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Box 2 -->
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="small-box text-bg-primary shadow-sm rounded-3">
+                  <div class="inner p-3">
+                    <h3 class="fw-bold mb-1">4 <span class="fs-6 fw-normal">Lagu (5 Album)</span></h3>
+                    <p class="mb-0">Katalog Musik & Audio Player</p>
+                  </div>
+                  <div class="small-box-icon"><i class="bi bi-disc fs-1 opacity-25"></i></div>
+                  <a href="#section-music" class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover d-block p-2 text-center bg-black bg-opacity-10">
+                    Buka Katalog Musik <i class="bi bi-arrow-down-circle ms-1"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Box 3 -->
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="small-box text-bg-warning shadow-sm rounded-3 text-dark">
+                  <div class="inner p-3">
+                    <h3 class="fw-bold mb-1">195 <span class="fs-6 fw-normal">Pcs (8 Item)</span></h3>
+                    <p class="mb-0">Stok Merchandise Aktif</p>
+                  </div>
+                  <div class="small-box-icon"><i class="bi bi-box-seam fs-1 opacity-25"></i></div>
+                  <a href="#section-products" class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover d-block p-2 text-center bg-black bg-opacity-10">
+                    Buka Stok Produk <i class="bi bi-arrow-down-circle ms-1"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Box 4 -->
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="small-box text-bg-danger shadow-sm rounded-3">
+                  <div class="inner p-3">
+                    <h3 class="fw-bold mb-1">4 <span class="fs-6 fw-normal">Kota (2 Pesan)</span></h3>
+                    <p class="mb-0">Jadwal Tur & Pesan Fans</p>
+                  </div>
+                  <div class="small-box-icon"><i class="bi bi-geo-alt fs-1 opacity-25"></i></div>
+                  <a href="#section-tours" class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover d-block p-2 text-center bg-black bg-opacity-10">
+                    Buka Jadwal Tur <i class="bi bi-arrow-down-circle ms-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- MAIN DATA TABLES GRID -->
+            <div class="row g-3">
+              <!-- LEFT COLUMN -->
+              <div class="col-lg-8">
+                <!-- Card: Pesanan Terbaru -->
+                <div class="card mb-4 shadow-sm" id="section-orders">
+                  <div class="card-header bg-body border-bottom d-flex align-items-center justify-content-between py-3">
+                    <h5 class="card-title mb-0 fw-bold">
+                      <i class="bi bi-cart3 text-primary me-2"></i> Transaksi Pesanan Merchandise Terbaru (Tabel <code>orders</code>)
+                    </h5>
+                    <a href="./index.php?table=orders#table-viewer" class="btn btn-sm btn-outline-primary">Buka Tabel Lengkap</a>
+                  </div>
+                  <div class="card-body p-0">
+                    <div class="table-responsive">
+                      <table class="table table-hover align-middle mb-0">
+                        <thead class="table-light">
+                          <tr>
+                            <th>Kode Order</th>
+                            <th>Pelanggan</th>
+                            <th>WhatsApp</th>
+                            <th>Metode Bayar</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><span class="badge text-bg-light border fw-bold">PRG-102934</span></td>
+                            <td><strong>Dimas Prasetyo</strong><br><small class="text-secondary">Jl. Tebet Raya No. 45, Jakarta...</small></td>
+                            <td><a href="https://wa.me/081234567890" target="_blank" class="text-decoration-none text-success"><i class="bi bi-whatsapp me-1"></i>081234567890</a></td>
+                            <td>QRIS</td>
+                            <td class="fw-bold">Rp 275.000</td>
+                            <td><span class="badge text-bg-success">Paid</span></td>
+                          </tr>
+                          <tr>
+                            <td><span class="badge text-bg-light border fw-bold">PRG-102935</span></td>
+                            <td><strong>Siti Rahma</strong><br><small class="text-secondary">Jl. Dago Atas No. 12, Bandung...</small></td>
+                            <td><a href="https://wa.me/085678901234" target="_blank" class="text-decoration-none text-success"><i class="bi bi-whatsapp me-1"></i>085678901234</a></td>
+                            <td>Transfer BCA</td>
+                            <td class="fw-bold">Rp 450.000</td>
+                            <td><span class="badge text-bg-warning">Pending</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card: Jadwal Tur -->
+                <div class="card mb-4 shadow-sm" id="section-tours">
+                  <div class="card-header bg-body border-bottom d-flex align-items-center justify-content-between py-3">
+                    <h5 class="card-title mb-0 fw-bold">
+                      <i class="bi bi-calendar-check text-danger me-2"></i> Agenda Tur & Konser (Tabel <code>tour_dates</code>)
+                    </h5>
+                    <a href="./index.php?table=tour_dates#table-viewer" class="btn btn-sm btn-outline-danger">Semua Jadwal</a>
+                  </div>
+                  <div class="card-body p-0">
+                    <div class="table-responsive">
+                      <table class="table table-hover align-middle mb-0">
+                        <thead class="table-light">
+                          <tr>
+                            <th>Nama Acara / Festival</th>
+                            <th>Kota & Venue</th>
+                            <th>Tanggal & Waktu</th>
+                            <th>Status Tiket</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="fw-bold">Pertunjukan Dalam Dinamika Jakarta</td>
+                            <td><i class="bi bi-geo-alt-fill text-danger me-1"></i> Jakarta<br><small class="text-secondary">GBK Arena</small></td>
+                            <td><i class="bi bi-clock me-1"></i> 12 May 2026<br><small class="text-secondary">19:00 WIB</small></td>
+                            <td><span class="badge text-bg-success">Available</span></td>
+                          </tr>
+                          <tr>
+                            <td class="fw-bold">Pertunjukan Dalam Dinamika Bandung</td>
+                            <td><i class="bi bi-geo-alt-fill text-danger me-1"></i> Bandung<br><small class="text-secondary">Sasana Budaya</small></td>
+                            <td><i class="bi bi-clock me-1"></i> 18 May 2026<br><small class="text-secondary">20:00 WIB</small></td>
+                            <td><span class="badge text-bg-secondary">Sold Out</span></td>
+                          </tr>
+                          <tr>
+                            <td class="fw-bold">Pertunjukan Dalam Dinamika Yogyakarta</td>
+                            <td><i class="bi bi-geo-alt-fill text-danger me-1"></i> Yogyakarta<br><small class="text-secondary">Jogja Expo Center</small></td>
+                            <td><i class="bi bi-clock me-1"></i> 25 May 2026<br><small class="text-secondary">19:30 WIB</small></td>
+                            <td><span class="badge text-bg-primary">Presale</span></td>
+                          </tr>
+                          <tr>
+                            <td class="fw-bold">Pertunjukan Dalam Dinamika Surabaya</td>
+                            <td><i class="bi bi-geo-alt-fill text-danger me-1"></i> Surabaya<br><small class="text-secondary">Convention Hall</small></td>
+                            <td><i class="bi bi-clock me-1"></i> 30 May 2026<br><small class="text-secondary">19:30 WIB</small></td>
+                            <td><span class="badge text-bg-success">Available</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- RIGHT COLUMN -->
+              <div class="col-lg-4">
+                <!-- Card: Pesan Kontak -->
+                <div class="card mb-4 shadow-sm" id="section-messages">
+                  <div class="card-header bg-body border-bottom d-flex align-items-center justify-content-between py-3">
+                    <h5 class="card-title mb-0 fw-bold">
+                      <i class="bi bi-chat-dots text-warning me-2"></i> Pesan Kontak (Tabel <code>contact_messages</code>)
+                    </h5>
+                    <a href="./index.php?table=contact_messages#table-viewer" class="btn btn-sm btn-outline-warning">Detail</a>
+                  </div>
+                  <div class="card-body p-0">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item p-3">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                          <span class="fw-bold text-dark">Budi Santoso</span>
+                          <span class="badge text-bg-secondary">Dibaca</span>
+                        </div>
+                        <div class="small fw-semibold text-primary mb-1">Penawaran Kolaborasi Acara Kampus</div>
+                        <p class="small text-secondary mb-0">Halo manajemen Perunggu, kami dari BEM ingin mengundang Perunggu...</p>
+                      </li>
+                      <li class="list-group-item p-3">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                          <span class="fw-bold text-dark">Aulia Putri</span>
+                          <span class="badge text-bg-danger">Baru</span>
+                        </div>
+                        <div class="small fw-semibold text-primary mb-1">Pertanyaan Restock Hoodie Semua Nama Ayah</div>
+                        <p class="small text-secondary mb-0">Apakah hoodie Semua Nama Ayah ukuran XL akan restock dalam waktu dekat?...</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Card: Stok Produk -->
+                <div class="card mb-4 shadow-sm" id="section-products">
+                  <div class="card-header bg-body border-bottom d-flex align-items-center justify-content-between py-3">
+                    <h5 class="card-title mb-0 fw-bold">
+                      <i class="bi bi-exclamation-triangle text-danger me-2"></i> Stok Merchandise (Tabel <code>products</code>)
+                    </h5>
+                    <a href="./index.php?table=products#table-viewer" class="btn btn-sm btn-outline-secondary">Katalog</a>
+                  </div>
+                  <div class="card-body p-0">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item d-flex justify-content-between align-items-center py-2 px-3">
+                        <div>
+                          <strong class="d-block text-truncate" style="max-width: 200px;">Kaos Pertunjukan Bandung</strong>
+                          <small class="text-muted">Kategori: kaos &bull; Rp 200.000</small>
+                        </div>
+                        <span class="badge text-bg-danger fs-7">0 pcs</span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center py-2 px-3">
+                        <div>
+                          <strong class="d-block text-truncate" style="max-width: 200px;">Hoodie Semua Nama Ayah</strong>
+                          <small class="text-muted">Kategori: hoodie &bull; Rp 450.000</small>
+                        </div>
+                        <span class="badge text-bg-warning fs-7">12 pcs</span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center py-2 px-3">
+                        <div>
+                          <strong class="d-block text-truncate" style="max-width: 200px;">Kaos Pertunjukan Surabaya</strong>
+                          <small class="text-muted">Kategori: kaos &bull; Rp 200.000</small>
+                        </div>
+                        <span class="badge text-bg-warning fs-7">18 pcs</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Card: Lagu -->
+                <div class="card mb-4 shadow-sm" id="section-music">
+                  <div class="card-header bg-body border-bottom d-flex align-items-center justify-content-between py-3">
+                    <h5 class="card-title mb-0 fw-bold">
+                      <i class="bi bi-music-player text-info me-2"></i> Track Lagu (Tabel <code>tracks</code>)
+                    </h5>
+                    <a href="./index.php?table=tracks#table-viewer" class="btn btn-sm btn-outline-info">Semua Lagu</a>
+                  </div>
+                  <div class="card-body p-0">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item d-flex justify-content-between align-items-center py-2 px-3">
+                        <div>
+                          <strong>33x</strong> <span class="badge text-bg-success ms-1">Active</span>
+                          <small class="d-block text-muted">Album: Memorandum</small>
+                        </div>
+                        <span class="badge text-bg-light border text-secondary">6:42</span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center py-2 px-3">
+                        <div>
+                          <strong>Pikiran Yang Matang</strong>
+                          <small class="d-block text-muted">Album: Memorandum</small>
+                        </div>
+                        <span class="badge text-bg-light border text-secondary">4:15</span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center py-2 px-3">
+                        <div>
+                          <strong>Pastikan Riuh Akhiri Malammu</strong>
+                          <small class="d-block text-muted">Album: Memorandum</small>
+                        </div>
+                        <span class="badge text-bg-light border text-secondary">5:20</span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center py-2 px-3">
+                        <div>
+                          <strong>Kalibata , 2012</strong>
+                          <small class="d-block text-muted">Album: Dalam Dinamika</small>
+                        </div>
+                        <span class="badge text-bg-light border text-secondary">4:45</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <!-- FOOTER -->
+      <footer class="app-footer">
+        <div class="float-end d-none d-sm-inline">
+          Basis Data: <strong>perunggu_db</strong> (MySQL 8.x) &bull; Semester 4 IT
+        </div>
+        <strong>Copyright &copy; 2026 <a href="../../web_perunggu/index.html" class="text-decoration-none">PERUNGGU</a>.</strong> All rights reserved.
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
+    <script src="./js/adminlte.js"></script>
+    <script>
+      // Deteksi jika dibuka langsung dari File Explorer (file:///)
+      if (window.location.protocol === 'file:') {
+        var warningEl = document.getElementById('file-protocol-warning');
+        if (warningEl) {
+          warningEl.classList.remove('d-none');
+        }
+        // Intercept semua link PHP agar tidak memicu download otomatis
+        document.querySelectorAll('a[href*=".php"]').forEach(function(link) {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('⚠️ PERHATIAN:\n\nFile PHP tidak bisa dijalankan langsung dari File Explorer (file:///)\nJika diklik, browser akan otomatis mengunduh/download file tersebut.\n\nCara yang benar:\n1. Buka Laragon dan klik "Start All"\n2. Buka browser dan kunjungi:\nhttp://localhost/perunggu/backend_perunggu/dist/index.php');
+          });
+        });
+      } else {
+        // Jika dibuka via HTTP/localhost, otomatis alihkan ke index.php
+        if (window.location.pathname.endsWith('index.html')) {
+          var targetUrl = window.location.href.replace(/index\.html(.*)/, 'index.php$1');
+          window.location.replace(targetUrl);
+        }
+      }
+    </script>
+  </body>
+</html>
