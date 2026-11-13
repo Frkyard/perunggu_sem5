@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PERUNGGU — Lihat semua jadwal tour dan konser band PERUNGGU di berbagai kota.">
+    <meta name="theme-color" content="#0a0a0f">
+    <title>PERUNGGU — All Tour Dates</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="notifications.css">
+    <script src="notifications.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="main-header">
+    <div class="logo">
+        <img src="images/logo.jpeg" alt="Logo Perunggu">
+        <span>PERUNGGU</span>
+    </div>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+    <nav id="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="music.html">Music</a></li>
+            <li><a href="updates.html">Updates</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- TOUR DATES SECTION -->
+<section class="page-section" id="tourdates-section">
+    <div class="tourdates-header">
+        <h2 class="section-title">Upcoming Tour Dates</h2>
+        <p style="color: var(--text-secondary); font-size: 16px; margin-top: -10px;">Jadwal konser PERUNGGU yang akan datang</p>
+    </div>
+
+    <div class="tourdates-content" hidden>
+
+        <!-- MAY 2026 -->
+        <div class="tour-month-section">
+            <h3 class="tour-month-title">May 2026</h3>
+
+            <div class="tour-date-card">
+                <div class="tour-date-left">
+                    <div class="tour-date-day">12</div>
+                    <div class="tour-date-month">MAY</div>
+                </div>
+                <div class="tour-date-info">
+                    <span class="tour-event-name">Pertunjukan Dalam Dinamika</span>
+                    <h4>Jakarta</h4>
+                    <p class="tour-venue"><i class="fas fa-map-marker-alt"></i> GBK Arena</p>
+                    <p class="tour-time"><i class="fas fa-clock"></i> 19:00 WIB</p>
+                    <span class="tour-status-tag status-available"><i class="fas fa-check-circle"></i> Available</span>
+                </div>
+                <div class="tour-date-action">
+                    <button class="btn-buy-tour" data-city="Jakarta">BUY TICKET</button>
+                </div>
+            </div>
+
+            <div class="tour-date-card">
+                <div class="tour-date-left">
+                    <div class="tour-date-day">18</div>
+                    <div class="tour-date-month">MAY</div>
+                </div>
+                <div class="tour-date-info">
+                    <span class="tour-event-name">Pertunjukan Dalam Dinamika</span>
+                    <h4>Bandung</h4>
+                    <p class="tour-venue"><i class="fas fa-map-marker-alt"></i> Sasana Budaya</p>
+                    <p class="tour-time"><i class="fas fa-clock"></i> 20:00 WIB</p>
+                    <span class="tour-status-tag status-soldout"><i class="fas fa-times-circle"></i> Sold Out</span>
+                </div>
+                <div class="tour-date-action">
+                    <button class="btn-buy-tour disabled" disabled data-city="Bandung">HABIS TERJUAL</button>
+                </div>
+            </div>
+
+            <div class="tour-date-card">
+                <div class="tour-date-left">
+                    <div class="tour-date-day">25</div>
+                    <div class="tour-date-month">MAY</div>
+                </div>
+                <div class="tour-date-info">
+                    <span class="tour-event-name">Pertunjukan Dalam Dinamika</span>
+                    <h4>Yogyakarta</h4>
+                    <p class="tour-venue"><i class="fas fa-map-marker-alt"></i> Jogja Expo Center</p>
+                    <p class="tour-time"><i class="fas fa-clock"></i> 19:30 WIB</p>
+                    <span class="tour-status-tag status-presale"><i class="fas fa-ticket"></i> Presale</span>
+                </div>
+                <div class="tour-date-action">
+                    <button class="btn-buy-tour" data-city="Yogyakarta">PRESALE TICKET</button>
+                </div>
+            </div>
+
+            <div class="tour-date-card">
+                <div class="tour-date-left">
+                    <div class="tour-date-day">30</div>
+                    <div class="tour-date-month">MAY</div>
+                </div>
+                <div class="tour-date-info">
+                    <span class="tour-event-name">Pertunjukan Dalam Dinamika</span>
+                    <h4>Surabaya</h4>
+                    <p class="tour-venue"><i class="fas fa-map-marker-alt"></i> Convention Hall</p>
+                    <p class="tour-time"><i class="fas fa-clock"></i> 20:00 WIB</p>
+                    <span class="tour-status-tag status-available"><i class="fas fa-check-circle"></i> Available</span>
+                </div>
+                <div class="tour-date-action">
+                    <button class="btn-buy-tour" data-city="Surabaya">BUY TICKET</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- JUNE 2026 -->
+        <div class="tour-month-section">
+            <h3 class="tour-month-title">June 2026</h3>
+
+            <div class="tour-date-card">
+                <div class="tour-date-left">
+                    <div class="tour-date-day">05</div>
+                    <div class="tour-date-month">JUN</div>
+                </div>
+                <div class="tour-date-info">
+                    <span class="tour-event-name">Pertunjukan Dalam Dinamika</span>
+                    <h4>Semarang</h4>
+                    <p class="tour-venue"><i class="fas fa-map-marker-alt"></i> Simpang Lima</p>
+                    <p class="tour-time"><i class="fas fa-clock"></i> 19:00 WIB</p>
+                    <span class="tour-status-tag status-available"><i class="fas fa-check-circle"></i> Available</span>
+                </div>
+                <div class="tour-date-action">
+                    <button class="btn-buy-tour" data-city="Semarang">BUY TICKET</button>
+                </div>
+            </div>
+
+            <div class="tour-date-card">
+                <div class="tour-date-left">
+                    <div class="tour-date-day">12</div>
+                    <div class="tour-date-month">JUN</div>
+                </div>
+                <div class="tour-date-info">
+                    <span class="tour-event-name">Pertunjukan Dalam Dinamika</span>
+                    <h4>Malang</h4>
+                    <p class="tour-venue"><i class="fas fa-map-marker-alt"></i> Malang Town Square</p>
+                    <p class="tour-time"><i class="fas fa-clock"></i> 20:00 WIB</p>
+                    <span class="tour-status-tag status-soldout"><i class="fas fa-times-circle"></i> Sold Out</span>
+                </div>
+                <div class="tour-date-action">
+                    <button class="btn-buy-tour disabled" disabled data-city="Malang">HABIS TERJUAL</button>
+                </div>
+            </div>
+
+            <div class="tour-date-card">
+                <div class="tour-date-left">
+                    <div class="tour-date-day">20</div>
+                    <div class="tour-date-month">JUN</div>
+                </div>
+                <div class="tour-date-info">
+                    <span class="tour-event-name">Pertunjukan Dalam Dinamika</span>
+                    <h4>Bali</h4>
+                    <p class="tour-venue"><i class="fas fa-map-marker-alt"></i> Bali International Convention Center</p>
+                    <p class="tour-time"><i class="fas fa-clock"></i> 19:30 WIB</p>
+                    <span class="tour-status-tag status-presale"><i class="fas fa-ticket"></i> Presale</span>
+                </div>
+                <div class="tour-date-action">
+                    <button class="btn-buy-tour" data-city="Bali">PRESALE TICKET</button>
+                </div>
+            </div>
+
+            <div class="tour-date-card">
+                <div class="tour-date-left">
+                    <div class="tour-date-day">27</div>
+                    <div class="tour-date-month">JUN</div>
+                </div>
+                <div class="tour-date-info">
+                    <span class="tour-event-name">Pertunjukan Dalam Dinamika</span>
+                    <h4>Medan</h4>
+                    <p class="tour-venue"><i class="fas fa-map-marker-alt"></i> Medan Convention Center</p>
+                    <p class="tour-time"><i class="fas fa-clock"></i> 20:00 WIB</p>
+                    <span class="tour-status-tag status-available"><i class="fas fa-check-circle"></i> Available</span>
+                </div>
+                <div class="tour-date-action">
+                    <button class="btn-buy-tour" data-city="Medan">BUY TICKET</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- JULY 2026 -->
+        <div class="tour-month-section">
+            <h3 class="tour-month-title">July 2026</h3>
+
+            <div class="tour-date-card">
+                <div class="tour-date-left">
+                    <div class="tour-date-day">10</div>
+                    <div class="tour-date-month">JUL</div>
+                </div>
+                <div class="tour-date-info">
+                    <span class="tour-event-name">Pertunjukan Dalam Dinamika</span>
+                    <h4>Makassar</h4>
+                    <p class="tour-venue"><i class="fas fa-map-marker-alt"></i> Celebes Convention Center</p>
+                    <p class="tour-time"><i class="fas fa-clock"></i> 19:00 WIB</p>
+                </div>
+                <div class="tour-date-action">
+                    <button class="btn-buy-tour">BUY TICKET</button>
+                </div>
+            </div>
+
+            <div class="tour-date-card">
+                <div class="tour-date-left">
+                    <div class="tour-date-day">18</div>
+                    <div class="tour-date-month">JUL</div>
+                </div>
+                <div class="tour-date-info">
+                    <span class="tour-event-name">Pertunjukan Dalam Dinamika</span>
+                    <h4>Palembang</h4>
+                    <p class="tour-venue"><i class="fas fa-map-marker-alt"></i> Palembang Sport Center</p>
+                    <p class="tour-time"><i class="fas fa-clock"></i> 20:00 WIB</p>
+                </div>
+                <div class="tour-date-action">
+                    <button class="btn-buy-tour">BUY TICKET</button>
+                </div>
+            </div>
+
+            <div class="tour-date-card">
+                <div class="tour-date-left">
+                    <div class="tour-date-day">25</div>
+                    <div class="tour-date-month">JUL</div>
+                </div>
+                <div class="tour-date-info">
+                    <span class="tour-event-name">Pertunjukan Dalam Dinamika</span>
+                    <h4>Solo</h4>
+                    <p class="tour-venue"><i class="fas fa-map-marker-alt"></i> Solo Grand Mall</p>
+                    <p class="tour-time"><i class="fas fa-clock"></i> 19:30 WIB</p>
+                </div>
+                <div class="tour-date-action">
+                    <button class="btn-buy-tour">BUY TICKET</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- INFO BOX -->
+    <div class="tour-info-box">
+        <h3><i class="fas fa-info-circle"></i> Informasi Penting</h3>
+        <ul>
+            <li>Tiket dapat dibeli secara online atau di lokasi venue</li>
+            <li>Harga tiket bervariasi tergantung kota dan kategori tempat duduk</li>
+            <li>Dianjurkan untuk membeli tiket lebih awal untuk menghindari sold out</li>
+            <li>Untuk pertanyaan lebih lanjut, hubungi kontak kami</li>
+        </ul>
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer id="main-footer">
+    <div class="footer-left">
+        <img src="images/logo.jpeg" alt="Perunggu Logo">
+        <div class="social">
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram" id="social-instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" aria-label="YouTube" id="social-youtube">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a href="https://spotify.com" target="_blank" aria-label="Spotify" id="social-spotify">
+                <i class="fa-brands fa-spotify"></i>
+            </a>
+            <a href="https://tiktok.com" target="_blank" aria-label="TikTok" id="social-tiktok">
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+        </div>
+    </div>
+    <p>&copy; Copyright 2026 PERUNGGU</p>
+</footer>
+
+<script>
+    // Hamburger menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mainNav = document.getElementById('main-nav');
+
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        mainNav.classList.toggle('open');
+    });
+
+    mainNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            mainNav.classList.remove('open');
+        });
+    });
+
+    // Buy ticket buttons
+    const buyButtons = document.querySelectorAll('.btn-buy-tour');
+    buyButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (btn.classList.contains('disabled')) return;
+            const city = btn.dataset.city || 'konser ini';
+            showSiteNotification(
+                `Tiket PERUNGGU Live di ${city} akan segera dibuka melalui Loket.com / Megatix!\nPastikan kamu sudah bergabung di Perunggu Fanbase Mail untuk mendapatkan akses presale eksklusif.`,
+                { type: 'info', title: 'Info tiket' }
+            );
+        });
+    });
+
+    const container = document.querySelector('.tourdates-content');
+    const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, character => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+    })[character]);
+
+    // Sinkronisasi jadwal tur mendatang dari Backend Database MySQL
+    async function syncTourDatesFromBackend() {
+        if (!container) return;
+        container.textContent = 'Memuat jadwal tur mendatang...';
+        container.hidden = false;
+        const candidateUrls = [
+            'api/tours.php',
+            'http://localhost/perunggu/web_perunggu/api/tours.php',
+            'http://localhost/perunggu/backend_perunggu/api/tours.php',
+            '../backend_perunggu/api/tours.php'
+        ];
+        let json = null;
+        for (const url of candidateUrls) {
+            try {
+                const res = await fetch(url);
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data && data.status === 'success' && Array.isArray(data.data)) {
+                        json = data;
+                        break;
+                    }
+                }
+            } catch (err) {}
+        }
+        if (!json) {
+            container.textContent = 'Jadwal tur belum dapat dimuat. Silakan coba muat ulang halaman.';
+            return;
+        }
+        if (json.data.length === 0) {
+            container.textContent = 'Belum ada jadwal tur mendatang.';
+            return;
+        }
+
+                // Group per Bulan (e.g. "May 2026", "June 2026")
+                const monthsFull = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                const monthsShort = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+                const groups = {};
+
+                json.data.forEach(item => {
+                    const d = new Date(`${item.event_date}T00:00:00`);
+                    const monthKey = isNaN(d.getMonth()) ? 'Upcoming Shows' : `${monthsFull[d.getMonth()]} ${d.getFullYear()}`;
+                    if (!groups[monthKey]) groups[monthKey] = [];
+                    groups[monthKey].push(item);
+                });
+
+                let html = '';
+                for (const [monthTitle, list] of Object.entries(groups)) {
+                    html += `
+                        <div class="tour-month-section">
+                            <h3 class="tour-month-title">${monthTitle}</h3>
+                    `;
+                    list.forEach(s => {
+                        const d = new Date(`${s.event_date}T00:00:00`);
+                        const day = isNaN(d.getDate()) ? '12' : String(d.getDate()).padStart(2, '0');
+                        const mShort = isNaN(d.getMonth()) ? 'MAY' : monthsShort[d.getMonth()];
+
+                        let statusTag = '';
+                        let actionBtn = '';
+                        const city = escapeHtml(s.city);
+                        if (s.status === 'sold_out') {
+                            statusTag = `<span class="tour-status-tag status-soldout"><i class="fas fa-times-circle"></i> Sold Out</span>`;
+                            actionBtn = `<button class="btn-buy-tour disabled" disabled data-city="${city}">HABIS TERJUAL</button>`;
+                        } else if (s.status === 'presale') {
+                            statusTag = `<span class="tour-status-tag status-presale"><i class="fas fa-ticket"></i> Presale</span>`;
+                            actionBtn = `<button class="btn-buy-tour" data-city="${city}">PRESALE TICKET</button>`;
+                        } else {
+                            statusTag = `<span class="tour-status-tag status-available"><i class="fas fa-check-circle"></i> Available</span>`;
+                            actionBtn = `<button class="btn-buy-tour" data-city="${city}">BUY TICKET</button>`;
+                        }
+
+                        html += `
+                            <div class="tour-date-card">
+                                <div class="tour-date-left">
+                                    <div class="tour-date-day">${day}</div>
+                                    <div class="tour-date-month">${mShort}</div>
+                                </div>
+                                <div class="tour-date-info">
+                                    <span class="tour-event-name">${escapeHtml(s.event_name || 'Pertunjukan Dalam Dinamika')}</span>
+                                    <h4>${city}</h4>
+                                    <p class="tour-venue"><i class="fas fa-map-marker-alt"></i> ${escapeHtml(s.venue)}</p>
+                                    <p class="tour-time"><i class="fas fa-clock"></i> ${escapeHtml(s.event_time)}</p>
+                                    ${statusTag}
+                                </div>
+                                <div class="tour-date-action">
+                                    ${actionBtn}
+                                </div>
+                            </div>
+                        `;
+                    });
+                    html += `</div>`;
+                }
+
+                container.innerHTML = html;
+
+                // Re-bind click listener
+                container.querySelectorAll('.btn-buy-tour').forEach(b => {
+                    b.addEventListener('click', () => {
+                        if (b.classList.contains('disabled')) return;
+                        const city = b.dataset.city || 'konser ini';
+                        showSiteNotification(
+                            `Tiket PERUNGGU Live di ${city} akan segera dibuka melalui Loket.com / Megatix!\nPastikan kamu sudah bergabung di Perunggu Fanbase Mail.`,
+                            { type: 'info', title: 'Info tiket' }
+                        );
+                    });
+                });
+            }
+    syncTourDatesFromBackend();
+</script>
+
+</body>
+</html>

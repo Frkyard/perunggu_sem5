@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PERUNGGU — Stay updated with the latest tour dates, news, and behind the scenes content from Indonesia's rising music act.">
+    <meta name="theme-color" content="#0a0a0f">
+    <title>PERUNGGU — Updates & Tour Schedule</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="notifications.css">
+    <script src="notifications.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<header id="main-header">
+
+    <div class="logo">
+        <img src="images/logo.jpeg" alt="Logo Perunggu">
+        <span>PERUNGGU</span>
+    </div>
+
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav id="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="music.html">Music</a></li>
+            <li><a href="updates.html" class="active">Updates</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+    <img src="images/hero.jpeg" alt="Perunggu Live Concert">
+</section>
+
+<!-- CONTENT -->
+<main class="container">
+
+    <section class="content">
+
+        <!-- TOUR -->
+        <section class="tour" id="tour-schedule">
+
+            <h2>Tour Schedule</h2>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Event</th>
+                            <th>City</th>
+                            <th>Venue</th>
+                            <th>Ticket</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>12 May 2026</td>
+                            <td>Pertunjukan Dalam Dinamika Jakarta</td>
+                            <td>Jakarta</td>
+                            <td>GBK Arena</td>
+                            <td><button id="buy-jakarta">BUY</button></td>
+                        </tr>
+
+                        <tr>
+                            <td>18 May 2026</td>
+                            <td>Pertunjukan Dalam Dinamika Bandung</td>
+                            <td>Bandung</td>
+                            <td>Sasana Budaya</td>
+                            <td><button id="buy-bandung">BUY</button></td>
+                        </tr>
+
+                        <tr>
+                            <td>25 May 2026</td>
+                            <td>Pertunjukan Dalam Dinamika Yogyakarta</td>
+                            <td>Yogyakarta</td>
+                            <td>Jogja Expo</td>
+                            <td><button id="buy-yogyakarta">BUY</button></td>
+                        </tr>
+
+                        <tr>
+                            <td>30 May 2026</td>
+                            <td>Pertunjukan Dalam Dinamika Surabaya</td>
+                            <td>Surabaya</td>
+                            <td>Convention Hall</td>
+                            <td><button id="buy-surabaya">BUY</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="center">
+                <button class="more-btn" id="btn-all-tour" onclick="window.location.href='tourdates.html'">
+                    SEE ALL TOUR DATES
+                </button>
+            </div>
+
+        </section>
+
+        <!-- NEWS -->
+        <section class="news" id="latest-news">
+
+            <h2>Latest News</h2>
+
+            <article class="news-card" id="news-new-single">
+
+                <img src="images/news1.jpeg" alt="Perunggu New Single Release">
+
+                <div>
+                    <span class="news-category">Music</span>
+                    <h3>Perunggu Releases New Single</h3>
+
+                    <p>
+                        Perunggu officially releases their newest single
+                        and receives positive responses from listeners.
+                    </p>
+                </div>
+
+            </article>
+
+            <article class="news-card" id="news-national-tour">
+
+                <img src="images/news2.jpeg" alt="Perunggu National Tour">
+
+                <div>
+                    <span class="news-category">Tour</span>
+                    <h3>National Tour Starts Soon</h3>
+
+                    <p>
+                        Perunggu will visit several cities across
+                        Indonesia during their national tour.
+                    </p>
+                </div>
+
+            </article>
+
+            <article class="news-card" id="news-behind-scenes">
+
+                <img src="images/news3.jpeg" alt="Perunggu Recording Behind The Scenes">
+
+                <div>
+                    <span class="news-category">Behind The Scene</span>
+                    <h3>Behind The Scenes Recording</h3>
+
+                    <p>
+                        Fans can now watch exclusive footage from
+                        the latest recording sessions.
+                    </p>
+                </div>
+
+            </article>
+
+            <div class="center">
+                <button class="more-btn" id="btn-all-news" onclick="window.location.href='allnews.html'">
+                    VIEW ALL NEWS
+                </button>
+            </div>
+
+        </section>
+
+    </section>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="news-archive">
+
+        <img src="images/archive.jpeg" alt="News Archive" class="archive-image">
+
+        <h2>News Archive</h2>
+
+        <ul>
+            <li><a href="#">April 2026 (6)</a></li>
+            <li><a href="#">March 2026 (4)</a></li>
+            <li><a href="#">February 2026 (3)</a></li>
+            <li><a href="#">January 2026 (8)</a></li>
+            <li><a href="#">December 2025 (7)</a></li>
+            <li><a href="#">November 2025 (5)</a></li>
+        </ul>
+
+    </aside>
+
+</main>
+
+<footer id="main-footer">
+
+    <div class="footer-left">
+
+        <img src="images/logo.jpeg" alt="Perunggu Logo">
+
+        <div class="social">
+
+            <a href="https://www.tiktok.com/@perunggu__" target="_blank" aria-label="Facebook" id="social-facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+            <a href="https://www.instagram.com/perunggu_/" target="_blank" aria-label="Instagram" id="social-instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="https://www.youtube.com/channel/UCTkiKmLQPAC_pR9Nbnc-4IA" target="_blank" aria-label="YouTube" id="social-youtube">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+
+            <a href="https://open.spotify.com/intl-id/artist/0NbKRRBuiIUwS9irPvi7wD" target="_blank" aria-label="Spotify" id="social-spotify">
+                <i class="fa-brands fa-spotify"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+    <p>&copy; Copyright 2026 PERUNGGU</p>
+
+</footer>
+
+<script>
+    // Hamburger menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mainNav = document.getElementById('main-nav');
+
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        mainNav.classList.toggle('open');
+    });
+
+    // Close menu when a nav link is clicked
+    mainNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            mainNav.classList.remove('open');
+        });
+    });
+
+    // Buy ticket buttons
+    const tourTable = document.querySelector('table');
+    tourTable?.addEventListener('click', event => {
+        const button = event.target.closest('button');
+        if (!button || button.disabled) return;
+
+        const city = button.dataset.city;
+        const message = city
+            ? `Tiket konser di ${city} segera tersedia di Loket.com!`
+            : 'Tiket akan segera hadir!';
+        showSiteNotification(message, { type: 'info', title: 'Info tiket' });
+    });
+
+    const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, character => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+    })[character]);
+
+    // Sinkronisasi data dinamis dari Backend MySQL (Jadwal Tur & Berita)
+    async function syncUpdatesFromBackend() {
+        const fetchWithFallback = async (endpoints) => {
+            for (const ep of endpoints) {
+                try {
+                    const r = await fetch(ep);
+                    if (r.ok) {
+                        const d = await r.json();
+                        if (d && d.status === 'success' && Array.isArray(d.data) && d.data.length > 0) return d;
+                    }
+                } catch (e) {}
+            }
+            return null;
+        };
+
+        // 1. Sinkronisasi Tur ke Tabel
+        const tourData = await fetchWithFallback([
+            'api/tours.php',
+            'http://localhost/perunggu/web_perunggu/api/tours.php',
+            'http://localhost/perunggu/backend_perunggu/api/tours.php',
+            '../backend_perunggu/api/tours.php'
+        ]);
+        if (tourData && Array.isArray(tourData.data) && tourData.data.length > 0) {
+            const tbody = document.querySelector('table tbody');
+            if (tbody) {
+                const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+                tbody.innerHTML = tourData.data.slice(0, 5).map(s => {
+                    const d = new Date(s.event_date);
+                    const day = isNaN(d.getDate()) ? '12' : String(d.getDate()).padStart(2, '0');
+                    const m = isNaN(d.getMonth()) ? 'May' : months[d.getMonth()];
+                    const y = isNaN(d.getFullYear()) ? '2026' : d.getFullYear();
+                    const btnText = s.status === 'sold_out' ? 'SOLD OUT' : 'BUY';
+                    const btnDisabled = s.status === 'sold_out' ? 'disabled style="opacity: 0.5;"' : '';
+                    const city = escapeHtml(s.city);
+                    return `
+                        <tr>
+                            <td>${day} ${m} ${y}</td>
+                            <td>${escapeHtml(s.event_name || 'Pertunjukan Dalam Dinamika')}</td>
+                            <td>${city}</td>
+                            <td>${escapeHtml(s.venue)}</td>
+                            <td><button ${btnDisabled} data-city="${city}">${btnText}</button></td>
+                        </tr>
+                    `;
+                }).join('');
+            }
+        }
+
+        // 2. Sinkronisasi Berita / Articles
+        const newsData = await fetchWithFallback([
+            'api/news.php?limit=3',
+            'http://localhost/perunggu/web_perunggu/api/news.php?limit=3',
+            'http://localhost/perunggu/backend_perunggu/api/news.php?limit=3',
+            '../backend_perunggu/api/news.php?limit=3'
+        ]);
+        if (newsData && Array.isArray(newsData.data) && newsData.data.length > 0) {
+            const newsSec = document.getElementById('latest-news');
+            if (newsSec) {
+                const articles = newsData.data;
+                const articlesHtml = articles.map(a => `
+                    <article class="news-card">
+                        <img src="${a.thumbnail_url || 'images/news1.jpeg'}" alt="${a.title}">
+                        <div>
+                            <span class="news-category">${a.category || 'News'}</span>
+                            <h3>${a.title}</h3>
+                            <p>${a.content ? (a.content.length > 130 ? a.content.substring(0, 130) + '...' : a.content) : ''}</p>
+                        </div>
+                    </article>
+                `).join('');
+
+                const heading = newsSec.querySelector('h2');
+                const moreBtn = newsSec.querySelector('.center');
+                if (heading && moreBtn) {
+                    newsSec.innerHTML = '';
+                    newsSec.appendChild(heading);
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = articlesHtml;
+                    while (tempDiv.firstChild) {
+                        newsSec.appendChild(tempDiv.firstChild);
+                    }
+                    newsSec.appendChild(moreBtn);
+                }
+            }
+        }
+    }
+    syncUpdatesFromBackend();
+</script>
+
+</body>
+</html>
