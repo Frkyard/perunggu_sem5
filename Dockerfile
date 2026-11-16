@@ -1,7 +1,12 @@
 FROM php:8.3-apache
 
 RUN docker-php-ext-install mysqli \
-    && a2enmod setenvif \
+    && for module in event worker; do \
+        if [ -e "/etc/apache2/mods-enabled/mpm_${module}.load" ]; then \
+            a2dismod "mpm_${module}"; \
+        fi; \
+    done \
+    && a2enmod mpm_prefork setenvif \
     && sed -i 's/Listen 80/Listen 8080/' /etc/apache2/ports.conf \
     && sed -i 's/<VirtualHost \*:80>/<VirtualHost *:8080>/' /etc/apache2/sites-available/000-default.conf \
     && printf '%s\n' \
