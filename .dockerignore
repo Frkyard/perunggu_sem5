@@ -1,0 +1,10 @@
+.git
+**/.git
+**/.env
+**/.env.*
+**/*.sql
+**/*.md
+**/*.docx
+**/*.log
+web_perunggu/images/uploads/
+web_perunggu/images/uploads/**

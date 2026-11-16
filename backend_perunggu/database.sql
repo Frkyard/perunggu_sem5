@@ -1,14 +1,8 @@
 -- ========================================================
--- IMPLEMENTASI BASIS DATA RESMI BAND PERUNGGU (perunggu_db)
--- Sesuai Dokumen Perancangan Basis Data (rancangan_basis_data.md)
--- Server: MySQL / MariaDB (Laragon / phpMyAdmin)
+-- IMPLEMENTASI BASIS DATA RESMI BAND PERUNGGU
+-- Impor ke database perunggu_db (atau database target yang dipilih).
+-- Server: MySQL / MariaDB
 -- ========================================================
-
-CREATE DATABASE IF NOT EXISTS `perunggu_db` 
-CHARACTER SET utf8mb4 
-COLLATE utf8mb4_unicode_ci;
-
-USE `perunggu_db`;
 
 -- Matikan foreign key checks sementara untuk kelancaran pembuatan/reset tabel
 SET FOREIGN_KEY_CHECKS = 0;
